@@ -24,3 +24,9 @@
         background-color: rgb(65, 127, 242);
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .searchBar__field {
+        min-width: 200px;
+    }
+}
