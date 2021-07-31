@@ -1,0 +1,28 @@
+#root {
+    width: 100%;
+    padding: 10px;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.logo {
+    margin-bottom: 20px;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    font-weight: 400;
+    font-size: calc( (100vw - 380px)/(1280 - 480) * (56 - 34) + 34px);
+}
+
+.cards__field {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

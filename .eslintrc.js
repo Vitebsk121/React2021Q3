@@ -19,13 +19,7 @@ module.exports = {
     amd: true,
     node: true,
   },
-  extends: [
-    'airbnb-typescript',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended', // Make sure this is always the last element in the array.
-  ],
+  extends: ['airbnb-typescript'],
   plugins: ['simple-import-sort', 'prettier'],
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],

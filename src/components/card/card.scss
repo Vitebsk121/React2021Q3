@@ -1,0 +1,91 @@
+.card {
+    margin: 15px;
+    width: 250px;
+    height: 250px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    overflow: hidden;
+
+    &:hover>.card-pic {
+        height: 40%;
+    }
+}
+
+.card-pic {
+    margin-bottom: 4px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    transition: all .8s;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(172deg, rgba(34,193,195,1) 0%, rgba(228,238,222,1) 50%, rgba(253,187,45,1) 100%);
+    }
+
+}
+
+.card__main {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.card__main-title {
+    margin-bottom: 5px;
+    font-family: 'Lobster', cursive;
+    font-weight: 400;
+    font-size: calc( (100vw - 380px)/(1280 - 480) * (26 - 14) + 14px);
+    background: linear-gradient(172deg, rgba(34,193,195,1) 0%, rgba(228,238,222,1) 50%, rgba(253,187,45,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.2px black;
+    transition: all .6s;
+
+    &:hover {
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: scale(1.02);
+    }
+}
+
+.card__main-adress {
+    margin-bottom: 2px;
+    color: rgba(0, 0, 0, 0.564);
+    font-size: calc( (100vw - 380px)/(1280 - 480) * (10 - 7) + 7px);
+    transition: all .6s;
+
+    &:hover {
+        color: rgb(0, 51, 255);
+    }
+}
+
+.card__date {
+    color: rgba(0, 0, 0, 0.564);
+    font-size: calc( (100vw - 380px)/(1280 - 480) * (7 - 5) + 5px);
+}
+
+.card__info {
+    background-color: rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.card__footer {
+    display: flex;
+}
+
+.card__like {
+    width: 30px;
+    height: 30px;
+}
