@@ -13,7 +13,7 @@ function App() {
       <SearchBar />
       <div className="cards__field">
         {cards.map((card) => {
-            <Card card={card}/>
+            <Card key={card.id} card={card} />
           })
         }
       </div>

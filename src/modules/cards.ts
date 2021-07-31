@@ -1,6 +1,4 @@
-import CardObj from "./interfaces";
-
-const cards: CardObj[] = [
+const cards = [
   {
     id: 1,
     link: 'https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%BB%D1%8B%D0%B9_%D0%B4%D0%BE%D0%BC',
