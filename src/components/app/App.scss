@@ -4,7 +4,7 @@
   position: relative;
 }
 
-.app__field {
+.app-field {
   width: 100%;
   height: 100%;
   position: relative;
@@ -22,4 +22,11 @@
     }
 
   }
+}
+
+.cards-field {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

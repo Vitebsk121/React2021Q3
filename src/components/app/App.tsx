@@ -1,35 +1,19 @@
 import './App.scss';
 
 import React from 'react';
-import Header from '../header/header';
+
+import { IAppState, IInputValues } from '../../modules/interfaces';
+import Card from '../card/card';
 import Form from '../form/form';
+import Header from '../header/header';
 
-  export interface InputValues {
-    firstName: string,
-    lastName: string,
-    email: string,
-    birthdayDate: string,
-    country: string,
-    offer: boolean,
-    agree: boolean,
-  }
-
-class App extends React.Component {
-  state: {
-    formActive: string;
-    formValues: {
-
-    }
-  };
-
+class App extends React.Component<{}, IAppState> {
   constructor(props: {} | Readonly<{}>) {
     super(props);
 
     this.state = {
       formActive: 'none',
-      formValues: {
-
-      }
+      formValues: [],
     };
   }
 
@@ -40,28 +24,52 @@ class App extends React.Component {
   };
 
   closeInputForm = (className: string) => {
-    if (className === 'app__field active') {
+    if (className === 'app-field active') {
       this.setState({
         formActive: 'none',
       });
     }
   };
 
-  setFormValues = (values: InputValues): void => {
-    console.log(values);
-  }
+  setFormValues = (props: IInputValues): void => {
+    const formValues = {
+      firstName: props.firstName,
+      lastName: props.lastName,
+      email: props.email,
+      birthdayDate: props.birthdayDate,
+      country: props.country,
+      avatarURL: props.avatarURL,
+    };
+
+    this.setState((prevState) => ({
+      formActive: 'none',
+      formValues: [...prevState.formValues, { ...formValues }],
+    }));
+  };
 
   render() {
-    let form: JSX.Element | null = <Form setFormValues={this.setFormValues}/>;
+    let form: JSX.Element | null = <Form setFormValues={this.setFormValues} />;
     if (this.state.formActive === 'none') {
       form = null;
     }
+
     return (
       <div className="wrapper">
         <div
-          className={`app__field ${this.state.formActive}`}
-          onClick={(e) => this.closeInputForm(e.target.className)}>
+          role="presentation"
+          className={`app-field ${this.state.formActive}`}
+          onClick={(e) => this.closeInputForm((e.target as HTMLElement).className)}
+          onKeyPress={(e) => {
+            if (e.code === '53') {
+              this.closeInputForm('app-field active');
+            }
+          }}>
           <Header activateForm={this.activateInputForm} />
+          <div className="cards-field">
+            {this.state.formValues.map((formValue, i) => (
+              <Card key={i} formValue={formValue} />
+            ))}
+          </div>
         </div>
         {form}
       </div>
