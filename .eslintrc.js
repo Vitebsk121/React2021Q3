@@ -22,8 +22,8 @@ module.exports = {
   extends: ['airbnb-typescript'],
   plugins: ['simple-import-sort', 'prettier'],
   rules: {
-    'jsx-a11y/label-has-associated-control': 'off',
-    'no-param-reassign': 'off',
+    // 'jsx-a11y/label-has-associated-control': 'off',
+    // 'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-closing-bracket-location': 'off',
     'react/destructuring-assignment': 'off',

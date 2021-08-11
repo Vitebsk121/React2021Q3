@@ -24,8 +24,6 @@ const Card = (props: { formValue: IInputValues }) => {
     return colors[rand];
   };
 
-  console.log(avatarURL);
-
   return (
     <div style={{ backgroundColor: setBeckgroundColor() }} className="card">
       <div className="user-avatar" style={{ backgroundImage: avatarURL }} />
