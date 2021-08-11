@@ -24,9 +24,9 @@ module.exports = {
   rules: {
     // 'jsx-a11y/label-has-associated-control': 'off',
     // 'no-param-reassign': 'off',
-    'react/no-array-index-key': 'off',
-    'react/jsx-closing-bracket-location': 'off',
-    'react/destructuring-assignment': 'off',
+    // 'react/no-array-index-key': 'off',
+    // 'react/jsx-closing-bracket-location': 'off',
+    // 'react/destructuring-assignment': 'off',
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/accessible-emoji': 'off',
