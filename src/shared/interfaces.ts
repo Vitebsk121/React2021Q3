@@ -29,5 +29,5 @@ export interface IMainProps extends IAppState {
   cards?: INewsCard[];
   handleSort: (sortBy: TSortType) => void;
   handleLangFilter: (langFilter: string) => void;
-  setPage: (event: React.FormEvent<HTMLInputElement>) => Promise<void>;
+  setPage: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }

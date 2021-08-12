@@ -64,7 +64,7 @@ export default function Main({
                 urlToImage,
               } = card;
               return (
-                <li>
+                <li key={key}>
                   <NewsCard
                     author={author}
                     content={content}
@@ -72,8 +72,8 @@ export default function Main({
                     publishedAt={publishedAt}
                     title={title}
                     url={url}
+                    key={key + (Math.random() * 1000)}
                     urlToImage={urlToImage}
-                    key={key}
                     source={source}
                   />
                 </li>
@@ -82,19 +82,19 @@ export default function Main({
           : null}
       </ul>
       {cards.length > 0 ? (
-        <p className="page-info">
+        <form className="page-info" onSubmit={(event) => setPage(event)}>
           Page
           <input
             type="text"
-            onChange={(event) => setPage(event)}
             defaultValue={currentPage}
+            id="currentPage"
           />
           of
           <span>
-            {' '}
             {countOfPages}
           </span>
-        </p>
+          <button type="submit">GO</button>
+        </form>
       ) : null}
     </div>
   );

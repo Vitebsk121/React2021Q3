@@ -81,8 +81,14 @@ export default class App extends React.Component<{}, IAppState> {
     this.handleApiData();
   };
 
-  handleCurrentPage = async (event: React.FormEvent<HTMLInputElement>) => {
-    const currentPage: number = +(event.target as HTMLInputElement).value;
+  handleCurrentPage = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    let currentPage: number = +(event.target as HTMLFormElement).currentPage.value;
+    const { countOfPages } = this.state;
+
+    if (countOfPages && currentPage > countOfPages) currentPage = countOfPages;
+
     this.setState({
       currentPage: await currentPage,
     });
