@@ -1,9 +1,70 @@
 .NewsCard {
-  display: inline-block;
-  margin: 5px;
-  padding: 5px;
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+  text-decoration: none;
   border: 2px solid white;
   border-radius: 5px;
-  text-decoration: none;
+
+  &:hover {
+    box-shadow: inset 0px 0px 100px 200px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.NewsCard__pic {
+  width: 100%;
+  min-height: 200px;
+  background-size: cover;
+}
+
+.NewsCard__content {
+  min-height: 50%;
   color: white;
+  padding: 10px;
+
+  & > h3 {
+    margin: 0 0 3px 0;
+    font-size: 1.2em;
+  }
+}
+
+.NewsCard__info {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.6em;
+}
+
+.NewsCard__description {
+  font-size: 0.9em;
+}
+
+
+
+@media screen and(max-width: 500px) {
+  .NewsCard__content {
+    min-height: 50%;
+    color: white;
+    padding: 10px;
+  
+    & > h3 {
+      margin: 0 0 3px 0;
+      font-size: 0.8em;
+    }
+  }
+
+  .NewsCard__pic {
+    width: 100%;
+    min-height: 150px;
+    background-size: cover;
+  }
+
+  .NewsCard__info {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.4em;
+  }
+  
+  .NewsCard__description {
+    font-size: 0.5em;
+  }
 }

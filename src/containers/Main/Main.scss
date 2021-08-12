@@ -1,3 +1,48 @@
 .Main {
   
 }
+
+.sortBtnWrapper {
+  display: flex;
+  justify-content: center;
+
+  & > label {
+    margin-right: 20px;
+
+    & > select {
+      margin-left: 5px;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid white;
+      background-color: rgb(149, 77, 169);
+      color: white;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.cardsField {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+
+  & > li {
+    width: 31%;
+    margin-bottom: 5px;
+    padding: 5px;
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .cardsField {
+    & > li {
+      width: 47%;
+      padding: 3px;
+    }
+  }
+}

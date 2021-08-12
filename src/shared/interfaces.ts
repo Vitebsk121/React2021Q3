@@ -1,7 +1,14 @@
 export interface IAppState {
   isLoading?: boolean;
   newsCards?: INewsCard[];
+  langFilter?: string;
+  sortBy?: TSortType;
+  searchValue?: string;
+  currentPage?: number;
+  countOfPages?: number;
 }
+
+export type TSortType = string;
 
 export interface IHeaderProps extends IAppState {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
@@ -18,6 +25,9 @@ export interface INewsCard {
   urlToImage: string;
 }
 
-export interface IMainProps {
+export interface IMainProps extends IAppState {
   cards?: INewsCard[];
+  handleSort: (sortBy: TSortType) => void;
+  handleLangFilter: (langFilter: string) => void;
+  setPage: (event: React.FormEvent<HTMLInputElement>) => Promise<void>;
 }
