@@ -72,7 +72,7 @@ export default function Main({
                     publishedAt={publishedAt}
                     title={title}
                     url={url}
-                    key={key + (Math.random() * 1000)}
+                    key={key + Math.random() * 1000}
                     urlToImage={urlToImage}
                     source={source}
                   />
@@ -84,15 +84,9 @@ export default function Main({
       {cards.length > 0 ? (
         <form className="page-info" onSubmit={(event) => setPage(event)}>
           Page
-          <input
-            type="text"
-            defaultValue={currentPage}
-            id="currentPage"
-          />
+          <input type="text" defaultValue={currentPage} id="currentPage" />
           of
-          <span>
-            {countOfPages}
-          </span>
+          <span>{countOfPages}</span>
           <button type="submit">GO</button>
         </form>
       ) : null}
