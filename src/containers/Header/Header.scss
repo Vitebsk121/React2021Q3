@@ -37,3 +37,11 @@
         margin-left: 50px;
     }
 }
+
+@media screen and(max-width:680px) {
+    .Header {
+        & > .Logo {
+            margin-left: 0;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 .MenuToggle {
   position: fixed;
-  top: 25px;
+  top: 30px;
   left: 30px;
   font-size: 30px;
   cursor: pointer;
@@ -13,7 +13,19 @@
   }
 
   &.open {
-      left: 320px;
+      left: 330px;
       color: #ff5e5e
+  }
+}
+
+@media screen and(max-width: 680px) {
+  .MenuToggle { 
+    font-size: 20px;
+    top: 20px;
+    left: 285px;
+    &.open {
+        left: 285px;
+        color: #ff5e5e
+    }
   }
 }

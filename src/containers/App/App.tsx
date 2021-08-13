@@ -2,6 +2,7 @@ import './App.scss';
 
 import React from 'react';
 
+import Drawer from '../../components/Navigation/Drawer/Drawer';
 import MenuToggle from '../../components/Navigation/MenuToggle/MenuToggle';
 import axiosInst from '../../services/API/Api';
 import { IAppState, TSortType } from '../../shared/interfaces';
@@ -103,6 +104,12 @@ export default class App extends React.Component<{}, IAppState> {
     }));
   };
 
+  menuCloseHandler = () => {
+    this.setState({
+      manuIsOpen: false,
+    });
+  };
+
   render() {
     // eslint-disable-next-line prettier/prettier
     const {
@@ -111,6 +118,7 @@ export default class App extends React.Component<{}, IAppState> {
 
     return (
       <div className="App">
+        <Drawer isOpen={manuIsOpen} onClose={this.menuCloseHandler} />
         <MenuToggle onToggle={this.menuIsOpenToggle} isOpen={manuIsOpen} />
         <Header isLoading={isLoading} onSubmit={this.formSubmitHandle} />
         <Main
