@@ -6,6 +6,7 @@ export interface IAppState {
   searchValue?: string;
   currentPage?: number;
   countOfPages?: number;
+  manuIsOpen?: boolean;
 }
 
 export type TSortType = string;

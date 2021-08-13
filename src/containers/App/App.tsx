@@ -2,6 +2,7 @@ import './App.scss';
 
 import React from 'react';
 
+import MenuToggle from '../../components/Navigation/MenuToggle/MenuToggle';
 import axiosInst from '../../services/API/Api';
 import { IAppState, TSortType } from '../../shared/interfaces';
 import Header from '../Header/Header';
@@ -22,6 +23,7 @@ export default class App extends React.Component<{}, IAppState> {
       searchValue: '',
       currentPage: 1,
       countOfPages: 0,
+      manuIsOpen: false,
     };
   }
 
@@ -95,14 +97,21 @@ export default class App extends React.Component<{}, IAppState> {
     this.handleApiData();
   };
 
+  menuIsOpenToggle = () => {
+    this.setState((prevState) => ({
+      manuIsOpen: !prevState.manuIsOpen,
+    }));
+  };
+
   render() {
     // eslint-disable-next-line prettier/prettier
     const {
-      isLoading, newsCards, currentPage, countOfPages,
+      isLoading, newsCards, currentPage, countOfPages, manuIsOpen,
     } = this.state;
 
     return (
       <div className="App">
+        <MenuToggle onToggle={this.menuIsOpenToggle} isOpen={manuIsOpen} />
         <Header isLoading={isLoading} onSubmit={this.formSubmitHandle} />
         <Main
           cards={newsCards}

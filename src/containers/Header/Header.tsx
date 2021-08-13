@@ -8,7 +8,7 @@ import { IHeaderProps } from '../../shared/interfaces';
 export default function Header({ isLoading, onSubmit }: IHeaderProps) {
   return (
     <div className="Header">
-      <a href="/React2021Q3/react-api/">
+      <a className="Logo" href="/React2021Q3/react-api/">
         <h1>React API</h1>
       </a>
       <SearchForm isLoading={isLoading} onSubmit={onSubmit} />
