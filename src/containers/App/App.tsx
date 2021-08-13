@@ -7,9 +7,9 @@ import { IAppState, TSortType } from '../../shared/interfaces';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 
-// const apiKey = 'f3f422d21f5745108dc09bb5b9775aa3';
+const apiKey = 'f3f422d21f5745108dc09bb5b9775aa3';
 
-const apiKeyReserv = 'c01db5a20bb2479eba9962427e07a8c3';
+// const apiKeyReserv = 'c01db5a20bb2479eba9962427e07a8c3';
 
 export default class App extends React.Component<{}, IAppState> {
   constructor(props: {} | Readonly<{}>) {
@@ -36,7 +36,7 @@ export default class App extends React.Component<{}, IAppState> {
     } = this.state;
     try {
       const responce = await axiosInst.get(
-        `everything?q=${searchValue}&apiKey=${apiKeyReserv}&language=${langFilter}&sortBy=${sortBy}&page=${currentPage}&pageSize=9`,
+        `everything?q=${searchValue}&apiKey=${apiKey}&language=${langFilter}&sortBy=${sortBy}&page=${currentPage}&pageSize=9`,
       );
 
       const newsCards = await responce.data.articles;
