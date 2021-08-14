@@ -47,7 +47,7 @@ export default function Main(props: IMainProps) {
       ) : null}
       <ul className="cardsField">
         {propsMain.newsCards
-          ? propsMain.newsCards.map((card) => {
+          ? propsMain.newsCards.map((card, index) => {
               const key = Math.random() * 10000;
               const {
                 author,
@@ -69,7 +69,7 @@ export default function Main(props: IMainProps) {
                     title={title}
                     url={url}
                     key={key + Math.random() * 1000}
-                    id={+key.toFixed(2)}
+                    id={index}
                     urlToImage={urlToImage}
                     source={source}
                   />

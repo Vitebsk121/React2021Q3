@@ -1,11 +1,12 @@
 import './App.scss';
 
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 import MenuToggle from '../../components/Navigation/MenuToggle/MenuToggle';
 import { IAppState } from '../../shared/interfaces';
+import NewsDetail from '../Detail/Detail';
 import HomePage from '../HomePage/HomePage';
 
 export default class App extends React.Component<{}, IAppState> {
@@ -34,9 +35,14 @@ export default class App extends React.Component<{}, IAppState> {
       <div className="App">
         <Drawer isOpen={menuIsOpen} onClose={this.menuCloseHandler} />
         <MenuToggle onToggle={this.menuIsOpenToggle} isOpen={menuIsOpen} />
-        <Route path="/" exact component={HomePage} />
-        <Route path="/about" exact render={() => <h1>ABOUT</h1>} />
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/about" exact render={() => <h1>ABOUT</h1>} />
+          <Route path="/details/:id" exact component={NewsDetail} />
+        </Switch>
       </div>
     );
   }
 }
+
+// TODO: add ditails page

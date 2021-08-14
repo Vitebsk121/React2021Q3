@@ -14,3 +14,5 @@ export default function SearchForm({ isLoading, onSubmit }: IHeaderProps) {
     </form>
   );
 }
+
+// TODO: add value

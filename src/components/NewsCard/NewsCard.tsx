@@ -21,7 +21,7 @@ const NewsCard = ({
 }: INewsCard) => {
   const history = useHistory();
   return (
-    <div className="NewsCard" onClick={() => history.push(`ditails/${id}`)}>
+    <div className="NewsCard" onClick={() => history.push(`details/${id}`)}>
       <div className="NewsCard__pic" style={{ backgroundImage: `url(${urlToImage})` }} />
       <div className="NewsCard__content">
         <h3>{title}</h3>
