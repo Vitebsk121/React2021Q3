@@ -7,9 +7,9 @@
   max-width: 320px;
   padding: 50px 10px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #a384ff;
   transform: translateX(0px);
-  transition: transform .6s ease-in-out;
+  transition: transform .4s ease-in-out;
   z-index: 90;
 
   &.close {
@@ -29,10 +29,10 @@
           width: fit-content;
 
           & > a {
+              text-decoration: none;
               width: fit-content;
               color: #363d54;
               font-size: 30px;
-              background-color: #fff;
               position: relative;
               transition: all .3s;
               cursor: pointer;
@@ -44,6 +44,10 @@
 
               &:active {
                   transform: scale(.98);
+              }
+
+              &.active {
+                  color: rgba(0, 102, 255, 0.824);
               }
           }
       }

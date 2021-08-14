@@ -1,10 +1,14 @@
 import './Drawer.scss';
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
-const links = ['Home', 'About', 'Page404'];
+const links = [
+  { url: '/', name: 'Home' },
+  { url: '/about', name: 'About' },
+];
 
 type IDrawer = {
   isOpen: boolean | undefined;
@@ -23,7 +27,9 @@ const Drawer = ({ isOpen, onClose }: IDrawer) => {
         <ul>
           {links.map((link) => (
             <li key={Math.random() * 1000}>
-              <a>{link}</a>
+              <NavLink to={link.url} onClick={onClose} exact>
+                {link.name}
+              </NavLink>
             </li>
           ))}
         </ul>

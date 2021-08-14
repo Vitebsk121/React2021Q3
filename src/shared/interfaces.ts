@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export interface IAppState {
   isLoading?: boolean;
   newsCards?: INewsCard[];
@@ -6,7 +7,7 @@ export interface IAppState {
   searchValue?: string;
   currentPage?: number;
   countOfPages?: number;
-  manuIsOpen?: boolean;
+  menuIsOpen?: boolean;
 }
 
 export type TSortType = string;
@@ -24,10 +25,11 @@ export interface INewsCard {
   title: string;
   url: string;
   urlToImage: string;
+  id: number;
 }
 
-export interface IMainProps extends IAppState {
-  cards?: INewsCard[];
+export interface IMainProps {
+  propsMain: IAppState;
   handleSort: (sortBy: TSortType) => void;
   handleLangFilter: (langFilter: string) => void;
   setPage: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;

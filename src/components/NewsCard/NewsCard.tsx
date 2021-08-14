@@ -1,11 +1,15 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/indent */
 import './NewsCard.scss';
 
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { INewsCard } from '../../shared/interfaces';
 
-export default function NewsCard({
+const NewsCard = ({
   title,
   author,
   description,
@@ -13,9 +17,11 @@ export default function NewsCard({
   url,
   source,
   urlToImage,
-}: INewsCard) {
+  id,
+}: INewsCard) => {
+  const history = useHistory();
   return (
-    <a className="NewsCard" href={url} target="_blank" rel="noreferrer">
+    <div className="NewsCard" onClick={() => history.push(`ditails/${id}`)}>
       <div className="NewsCard__pic" style={{ backgroundImage: `url(${urlToImage})` }} />
       <div className="NewsCard__content">
         <h3>{title}</h3>
@@ -33,8 +39,15 @@ export default function NewsCard({
         </p>
         <p className="NewsCard__info author">{author}</p>
         <p className="NewsCard__info source">{source?.name}</p>
-        <p className="NewsCard__description">{description}</p>
+        <p className="NewsCard__description">
+          {description}
+          <a href={url} target="_blank" rel="noreferrer">
+            READ IN SOURCE
+          </a>
+        </p>
       </div>
-    </a>
+    </div>
   );
-}
+};
+
+export default NewsCard;

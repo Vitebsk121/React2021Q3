@@ -4,20 +4,16 @@ import './Main.scss';
 
 import React from 'react';
 
-import NewsCard from '../../components/NewsCard/NewsCard';
-import { IMainProps } from '../../shared/interfaces';
+import NewsCard from '../../../components/NewsCard/NewsCard';
+import { IMainProps } from '../../../shared/interfaces';
 
-export default function Main({
-  cards = [],
-  handleSort,
-  handleLangFilter,
-  currentPage,
-  countOfPages,
-  setPage,
-}: IMainProps) {
+export default function Main(props: IMainProps) {
+  const {
+    propsMain, handleLangFilter, handleSort, setPage,
+  } = props;
   return (
     <div className="Main">
-      {cards.length > 0 ? (
+      {propsMain.newsCards && propsMain.newsCards.length > 0 ? (
         <div className="sortBtnWrapper">
           <label htmlFor="language">
             Filter by language:
@@ -50,8 +46,8 @@ export default function Main({
         </div>
       ) : null}
       <ul className="cardsField">
-        {cards
-          ? cards.map((card) => {
+        {propsMain.newsCards
+          ? propsMain.newsCards.map((card) => {
               const key = Math.random() * 10000;
               const {
                 author,
@@ -73,6 +69,7 @@ export default function Main({
                     title={title}
                     url={url}
                     key={key + Math.random() * 1000}
+                    id={+key.toFixed(2)}
                     urlToImage={urlToImage}
                     source={source}
                   />
@@ -81,12 +78,12 @@ export default function Main({
             })
           : null}
       </ul>
-      {cards.length > 0 ? (
+      {propsMain.newsCards && propsMain.newsCards.length > 0 ? (
         <form className="page-info" onSubmit={(event) => setPage(event)}>
           Page
-          <input type="text" defaultValue={currentPage} id="currentPage" />
+          <input type="text" defaultValue={propsMain.currentPage} id="currentPage" />
           of
-          <span>{countOfPages}</span>
+          <span>{propsMain.countOfPages}</span>
           <button type="submit">GO</button>
         </form>
       ) : null}
