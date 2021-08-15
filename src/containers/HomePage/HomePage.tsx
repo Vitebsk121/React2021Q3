@@ -27,14 +27,14 @@ export default class HomePage extends React.Component<{}, IAppState> {
   }
 
   componentDidMount() {
-    const savedState = localStorage.getItem('state');
-    this.setState((prevState) => JSON.parse(savedState || JSON.stringify(prevState)));
+    // const savedState = localStorage.getItem('state');
+    // this.setState((prevState) => JSON.parse(savedState || JSON.stringify(prevState)));
   }
 
-  componentWillUnmount() {
-    const save = JSON.stringify(this.state);
-    localStorage.setItem('state', save);
-  }
+  // componentWillUnmount() {
+  //   const save = JSON.stringify(this.state);
+  //   localStorage.setItem('state', save);
+  // }
 
   // eslint-disable-next-line prettier/prettier
   isLoadingHandle = () => this.setState((prevState) => ({ isLoading: !prevState.isLoading }));

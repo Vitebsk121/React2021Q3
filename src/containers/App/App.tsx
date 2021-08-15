@@ -1,12 +1,15 @@
+/* eslint-disable prettier/prettier */
 import './App.scss';
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 import MenuToggle from '../../components/Navigation/MenuToggle/MenuToggle';
 import { IAppState } from '../../shared/interfaces';
-import NewsDetail from '../Detail/Detail';
+import About from '../About/About';
+import NewsDetail from '../Detail/NewsDetail';
 import HomePage from '../HomePage/HomePage';
 
 export default class App extends React.Component<{}, IAppState> {
@@ -31,18 +34,32 @@ export default class App extends React.Component<{}, IAppState> {
 
   render() {
     const { menuIsOpen } = this.state;
+    const routes = [
+      { path: '/', exact: true, Component: HomePage },
+      { path: '/about', exact: true, Component: About },
+      { path: '/details/:id', exact: false, Component: NewsDetail },
+    ];
     return (
       <div className="App">
         <Drawer isOpen={menuIsOpen} onClose={this.menuCloseHandler} />
         <MenuToggle onToggle={this.menuIsOpenToggle} isOpen={menuIsOpen} />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/about" exact render={() => <h1>ABOUT</h1>} />
-          <Route path="/details/:id" exact component={NewsDetail} />
-        </Switch>
+        {routes.map(({ path, Component, exact }) => (
+          <Route key={path} path={path} exact={exact}>
+            {({ match }) => (
+              <CSSTransition
+                timeout={1000}
+                classNames="page"
+                unmountOnExit
+                in={match !== null}
+              >
+                <div className="page">
+                  <Component />
+                </div>
+              </CSSTransition>
+            )}
+          </Route>
+        ))}
       </div>
     );
   }
 }
-
-// TODO: add ditails page
