@@ -3,51 +3,55 @@
 import './Main.scss';
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
+import Filter from '../../../components/Filter/Filter';
 import NewsCard from '../../../components/NewsCard/NewsCard';
-import { IMainProps } from '../../../shared/interfaces';
+import Sort from '../../../components/Sort/Sort';
+import useTypedSelector from '../../../hooks/useTypedSelector';
+import fetchNewsCards from '../../../store/actions/newsCards';
+import { TSortType } from '../../../types/interfaces';
 
-export default function Main(props: IMainProps) {
+const Main = () => {
+  // eslint-disable-next-line prettier/prettier
   const {
-    propsMain, handleLangFilter, handleSort, setPage,
-  } = props;
+    newsCards,
+    currentPage,
+    countOfPages,
+    langFilter,
+    sortBy,
+    searchValue,
+  } = useTypedSelector((state) => state.newsCards);
+  const dispatch = useDispatch();
+  const handleLangFilter = async (filter: string) => {
+    dispatch(fetchNewsCards(currentPage!, filter, sortBy!, searchValue!));
+  };
+  const handleSort = async (sort: TSortType) => {
+    dispatch(fetchNewsCards(currentPage!, langFilter!, sort, searchValue!));
+  };
+  const handleCurrentPage = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    let curPage: number = +(event.target as HTMLFormElement).currentPage.value;
+
+    if (countOfPages && curPage > countOfPages) curPage = countOfPages;
+
+    dispatch(fetchNewsCards(curPage, langFilter!, sortBy!, searchValue!));
+  };
   return (
     <div className="Main">
-      {propsMain.newsCards && propsMain.newsCards.length > 0 ? (
+      {newsCards && newsCards.length > 0 ? (
         <div className="sortBtnWrapper">
-          <label htmlFor="language">
-            Filter by language:
-            <select
-              id="language"
-              onChange={(event) => {
-                handleLangFilter((event?.target as HTMLSelectElement).value);
-              }}
-            >
-              <option>ru</option>
-              <option>en</option>
-              <option>de</option>
-              <option>fr</option>
-              <option>it</option>
-            </select>
-          </label>
-          <label htmlFor="sortBy">
-            Sort by:
-            <select
-              id="sortBy"
-              onChange={(event) => {
-                handleSort((event?.target as HTMLSelectElement).value);
-              }}
-            >
-              <option>newest</option>
-              <option>popularity</option>
-              <option>relevancy</option>
-            </select>
-          </label>
+          <Filter
+            handleLangFilter={handleLangFilter}
+            options={['ru', 'en', 'fr', 'it']}
+          />
+          <Sort handleSort={handleSort} options={['newest', 'popularity', 'relevancy']} />
         </div>
       ) : null}
       <ul className="cardsField">
-        {propsMain.newsCards
-          ? propsMain.newsCards.map((card, index) => {
+        {newsCards
+          ? newsCards.map((card, index) => {
               const key = Math.random() * 10000;
               const {
                 author,
@@ -78,15 +82,17 @@ export default function Main(props: IMainProps) {
             })
           : null}
       </ul>
-      {propsMain.newsCards && propsMain.newsCards.length > 0 ? (
-        <form className="page-info" onSubmit={(event) => setPage(event)}>
+      {newsCards && newsCards.length > 0 ? (
+        <form className="page-info" onSubmit={(event) => handleCurrentPage(event)}>
           Page
-          <input type="text" defaultValue={propsMain.currentPage} id="currentPage" />
+          <input type="text" defaultValue={currentPage} id="currentPage" />
           of
-          <span>{propsMain.countOfPages}</span>
+          <span>{countOfPages}</span>
           <button type="submit">GO</button>
         </form>
       ) : null}
     </div>
   );
-}
+};
+
+export default Main;

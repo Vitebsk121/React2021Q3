@@ -7,7 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 import MenuToggle from '../../components/Navigation/MenuToggle/MenuToggle';
-import { IAppState } from '../../shared/interfaces';
+import { IAppState } from '../../types/interfaces';
 import About from '../About/About';
 import NewsDetail from '../Detail/NewsDetail';
 import HomePage from '../HomePage/HomePage';

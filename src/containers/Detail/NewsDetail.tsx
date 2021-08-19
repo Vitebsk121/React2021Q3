@@ -3,7 +3,7 @@ import './NewsDetail.scss';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { INewsCard } from '../../shared/interfaces';
+import { INewsCard } from '../../types/interfaces';
 
 const NewsDetail: React.FC = () => {
   const { state } = useLocation<INewsCard>();

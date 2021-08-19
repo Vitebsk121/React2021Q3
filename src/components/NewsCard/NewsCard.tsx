@@ -7,7 +7,7 @@ import './NewsCard.scss';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { INewsCard } from '../../shared/interfaces';
+import { INewsCard } from '../../types/interfaces';
 
 const NewsCard = ({
   title,
