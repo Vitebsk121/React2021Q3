@@ -39,10 +39,11 @@ const Form = (props: ISetFormValues) => {
     avatar: string | ArrayBuffer | null,
     elem: HTMLLabelElement | null,
   ) => {
-    if (elem === null) return;
+    const element = elem;
+    if (element === null) return;
     handleInput(`url(${String(avatar)}`, getAvatar);
-    elem.style.backgroundImage = `url(${avatar})`;
-    elem.style.backgroundSize = 'cover';
+    element.style.backgroundImage = `url(${avatar})`;
+    element.style.backgroundSize = 'cover';
   };
 
   const checkDateOfBirth = (element: HTMLInputElement) => {
@@ -50,7 +51,7 @@ const Form = (props: ISetFormValues) => {
     const userBirthDate = new Date(element.value);
 
     if (userBirthDate >= currentDate) {
-      element.value = '';
+      setBirthdayDate('');
       return;
     }
 
@@ -163,7 +164,7 @@ const Form = (props: ISetFormValues) => {
             <option>Russia</option>
             <option>Belarus</option>
             <option>USA</option>
-            <option>Franch</option>
+            <option>French</option>
             <option>Germany</option>
           </select>
         </label>
@@ -191,7 +192,9 @@ const Form = (props: ISetFormValues) => {
               required
               onChange={() => setAgree((prev) => !prev)}
             />
-            <label className="onoffswitch-label" htmlFor="myonoffswitch" />
+            <label className="onoffswitch-label" htmlFor="myonoffswitch">
+              {' '}
+            </label>
           </div>
         </label>
         <input className="form__btn" type="submit" value="Create" />
