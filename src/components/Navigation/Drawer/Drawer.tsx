@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
 const links = [
-  { url: '/', name: 'Home' },
+  { url: '/home', name: 'Home' },
   { url: '/about', name: 'About' },
 ];
 
