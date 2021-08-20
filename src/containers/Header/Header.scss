@@ -1,0 +1,35 @@
+.Header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    & > a {
+        color: white;
+        text-decoration: none;
+        margin: 0 0 5px;
+        transition: all .25s;
+        opacity: .8;
+
+        &:hover {
+            opacity: 1;
+        }
+
+
+        & > h1 {
+            margin: 0;
+            font-family: 'Zen Tokyo Zoo', cursive;
+            font-weight: 500;
+        }
+    }
+
+    & > form {
+        margin: 0 0 5px;
+    }
+
+    & > p {
+        margin: 0 0 5px;
+    }
+}
