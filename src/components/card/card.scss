@@ -1,0 +1,35 @@
+.card {
+    margin: 0 10px 10px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 29%;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.user-avatar {
+    margin-right: 5px;
+    min-width: 50px;
+    height: 50px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.user-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+.title-value {
+    margin-left: 10px;
+}
