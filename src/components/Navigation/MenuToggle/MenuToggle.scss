@@ -1,0 +1,32 @@
+.MenuToggle {
+  position: fixed;
+  top: 50px;
+  left: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  transition: all .6s ease-in-out;
+  z-index: 100;
+
+  &:hover {
+    color: #fecaca
+  }
+
+  &.open {
+      left: 330px;
+      color: #ff5e5e
+  }
+}
+
+@media screen and(max-width: 680px) {
+  .MenuToggle { 
+    font-size: 20px;
+    top: 20px;
+    left: 90%;
+
+    &.open {
+        left: 285px;
+        color: #ff5e5e
+    }
+  }
+}

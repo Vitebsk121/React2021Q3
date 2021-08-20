@@ -1,0 +1,92 @@
+.Main {
+  margin-bottom: 10px;
+}
+
+.sortBtnWrapper {
+  display: flex;
+  justify-content: center;
+
+  & > label {
+    margin-right: 20px;
+
+    & > select {
+      margin-left: 5px;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid white;
+      background-color: rgb(149, 77, 169);
+      color: white;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.cardsField {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+
+  & > li {
+    width: 31%;
+    margin-bottom: 5px;
+    padding: 5px;
+  }
+}
+
+.page-info {
+
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+
+
+  & > input {
+    text-align: center;
+    width: 20px;
+    margin: 0 5px;
+    outline-color: rgb(149, 77, 169);
+    font-size: .9em;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+
+  & > span {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: rgb(0, 63, 131);
+  }
+
+  & > button {
+    padding: 7px 20px;
+    background-color: #92509a;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+      background-color: #82378a;
+    }
+
+    &:active {
+      box-shadow: inset 2px 2px 10px 0px rgba(50, 50, 50, 0.75);
+      transform: scale(0.99);
+    }
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .cardsField {
+    & > li {
+      width: 47%;
+      padding: 3px;
+    }
+  }
+}
