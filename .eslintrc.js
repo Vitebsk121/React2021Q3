@@ -22,6 +22,7 @@ module.exports = {
   extends: ['airbnb-typescript'],
   plugins: ['simple-import-sort', 'prettier'],
   rules: {
+    'react/jsx-closing-bracket-location': 'off',
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/accessible-emoji': 'off',
