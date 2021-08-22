@@ -24,7 +24,7 @@ const Sort: React.FC<SortProps> = ({ handleSort, options }: SortProps) => {
       >
         <option disabled>Sort by: </option>
         {options.map((option) => (
-          <option>{option}</option>
+          <option key={option}>{option}</option>
         ))}
       </select>
     </label>
