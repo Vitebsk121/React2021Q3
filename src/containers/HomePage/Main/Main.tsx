@@ -66,6 +66,7 @@ const Main = () => {
               return (
                 <li key={key}>
                   <NewsCard
+                    data-testid='NewsCard'
                     author={author}
                     content={content}
                     description={description}

@@ -1,6 +1,6 @@
 import { INewsCardAction, INewsCardState, INewsCardsTypes } from '../../types/interfaces';
 
-const initialState: INewsCardState = {
+export const initialState: INewsCardState = {
   newsCards: [],
   isLoading: false,
   error: null,

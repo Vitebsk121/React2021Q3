@@ -23,8 +23,8 @@ const Sort: React.FC<SortProps> = ({ handleSort, options }: SortProps) => {
         }}
       >
         <option disabled>Sort by: </option>
-        {options.map((option) => (
-          <option key={option}>{option}</option>
+        {options.map((option, index) => (
+          <option key={option} value={index + 1}>{option}</option>
         ))}
       </select>
     </label>

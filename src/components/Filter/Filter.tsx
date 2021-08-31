@@ -23,8 +23,8 @@ const Filter: React.FC<FilterProps> = ({ handleLangFilter, options }: FilterProp
         }}
       >
         <option disabled>Filter by: </option>
-        {options.map((option) => (
-          <option key={option}>{option}</option>
+        {options.map((option, index) => (
+          <option key={option} value={index + 1}>{option}</option>
         ))}
       </select>
     </label>

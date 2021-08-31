@@ -59,3 +59,7 @@ const App = () => {
 }
 
 export default App;
+
+export const AppForTest = () => {
+  return <App/>
+};
